@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import CharacterCard from "./components/characterCard/CharacterCard";
+import "./App.scss";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const url = "https://rickandmortyapi.com/api/character/";
+
+class App extends Component {
+  state = {
+    data: {
+      results: []
+    }
+  };
+
+  componentDidMount() {
+    this.fetchCharacters();
+  }
+
+  fetchCharacters = async () => {
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({ data: data });
+  };
+
+  render() {
+    return (
+      <div className="cards-container">
+        {this.state.data.results.map(character => (
+          <CharacterCard key={character.id} character={character} />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default App;

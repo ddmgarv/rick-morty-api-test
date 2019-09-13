@@ -1,0 +1,21 @@
+$fontSize: 18px;
+$cardTitleBg: rgba(0, 0, 0, 0.5);
+.card-item {
+  width: auto;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  .text-container {
+    z-index: 15;
+    color: #fff;
+    font-size: $fontSize;
+    background-color: $cardTitleBg;
+    width: 100%;
+    text-align: left;
+    padding-left: 1em;
+  }
+}
