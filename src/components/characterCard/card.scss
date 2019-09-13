@@ -1,21 +1,33 @@
-$fontSize: 18px;
+$fontSize: 20px;
 $cardTitleBg: rgba(0, 0, 0, 0.5);
+
 .card-item {
-  width: auto;
+  width: 100%;
   height: 300px;
   background-position: center;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  border-radius: 5px;
 
+  &:hover {
+    width: calc(100% + 5%);
+    height: 315px;
+    cursor: pointer;
+  }
   .text-container {
     z-index: 15;
     color: #fff;
     font-size: $fontSize;
     background-color: $cardTitleBg;
+    backdrop-filter: blur(3px);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     width: 100%;
     text-align: left;
-    padding-left: 1em;
+    padding-left: 0.75em;
+    position: relative;
+    top: 1px;
   }
 }
