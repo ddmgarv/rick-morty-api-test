@@ -2,6 +2,27 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 1.5%;
-  column-gap: 1.5%;
-  padding: 3%;
+  column-gap: 3.5%;
+  padding: 5%;
+
+}
+.loader-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.btn-container{
+
+
+  .btn-custom{
+    width: 50%;
+    padding: 1rem;
+    background-color: green;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    color:#fff;
+    margin: 1rem 0 0 0;
+  }
 }
