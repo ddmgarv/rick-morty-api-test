@@ -24,7 +24,7 @@ class App extends Component {
     try {
       const response = await fetch(`https://rickandmortyapi.com/api/character?page=${this.state.page}`);
       const data = await response.json();
-      this.setState({ loading:false, data: data, page: this.state.page + 1 });
+      this.setState({ loading:false, data: {info: data.info, results: [].concat(this.state.data.results , data.results)}, page: this.state.page + 1 });
        
     } catch (error) {
       this.setState({ error:true, loading:false  });
@@ -37,7 +37,7 @@ class App extends Component {
       return `Error ${this.state.error.message}`;
     }
     return (
-      <div>
+      <div className="container">
         <div className="cards-container">
           {this.state.data.results.map(character => (
             <CharacterCard key={character.id} character={character} />
@@ -45,7 +45,7 @@ class App extends Component {
         </div>
         {this.state.loading && (
           <div className="loader-container">
-            <CircularProgress color={"secondary"} size={140} />
+            <CircularProgress color={"secondary"} size={100} />
           </div>
         )}
 
